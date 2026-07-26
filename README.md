@@ -12,7 +12,7 @@
 **LeetCode:** [dm-morozov](https://leetcode.com/u/dm-morozov/)  
 **Codewars:** [dm-morozov](https://www.codewars.com/users/dm-morozov)
 
-**Проживаю:** Оренбург
+**Проживаю:** Оренбург  
 **Готов к переезду:** Москва, Адлер; готов к командировкам
 
 ---
