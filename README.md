@@ -4,12 +4,12 @@
 
 ![Морозов Дмитрий](img/photo-dm-morozov.jpg)
 
-**Возраст:** 35 лет (10 марта 1991)
-**Телефон:** +7 (903) 392-22-29
-**Telegram:** [@dem2014](https://t.me/dem2014) *(предпочитаемый способ связи)*
-**Email:** [dem.morozov@gmail.com](mailto:dem.morozov@gmail.com)
-**GitHub:** [dm-morozov](https://github.com/dm-morozov)
-**LeetCode:** [dm-morozov](https://leetcode.com/u/dm-morozov/)
+**Возраст:** 35 лет (10 марта 1991)  
+**Телефон:** +7 (903) 392-22-29  
+**Telegram:** [@dem2014](https://t.me/dem2014) *(предпочитаемый способ связи)*  
+**Email:** [dem.morozov@gmail.com](mailto:dem.morozov@gmail.com)  
+**GitHub:** [dm-morozov](https://github.com/dm-morozov)  
+**LeetCode:** [dm-morozov](https://leetcode.com/u/dm-morozov/)  
 **Codewars:** [dm-morozov](https://www.codewars.com/users/dm-morozov)
 
 **Проживаю:** Оренбург
