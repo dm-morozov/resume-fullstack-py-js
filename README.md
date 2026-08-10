@@ -129,6 +129,12 @@
   * **Deployment:** Архитектура деплоя включает Nginx в качестве reverse-proxy, Gunicorn в качестве WSGI-сервера и PostgreSQL.
   * *Примечание: В настоящее время проект переносится на постоянный хостинг Beget.*
 
+* **«Retro Game» (Пошаговая стратегия) — [Ссылка на GitHub](https://github.com/dm-morozov/Netology_64_diploma_assignment_course_advanced_javascript_retro_game) (Дипломный проект по JS)**
+  * **Описание:** Ретро-стилизованная пошаговая тактическая игра (битва на сетке 8x8) против игрового ИИ.
+  * **Технологии:** TypeScript, Webpack, Jest (тестирование), ESLint, CSS Modules, GitHub Actions / AppVeyor CI.
+  * **Ключевые фичи:** Логика передвижения и боя персонажей разных классов, расчет расстояний на сетке, сохранение/загрузка состояния игры, анимации урона, авто-деплой через CI.
+  * *Живой проект доступен онлайн:* [Играть в браузере](https://dm-morozov.github.io/Netology_64_diploma_assignment_course_advanced_javascript_retro_game/)
+    
 * **[Telegram Bot для изучения английского языка](https://github.com/dm-morozov/Netology_14_Telegram_Bot)** — асинхронный бот на Python, взаимодействующий с Telegram API для обучения пользователей новым словам.
 * **[ВК-бот для знакомств (VKinder)](https://github.com/dm-morozov/Netology_21_VKinder_Team)** — командный проект, интеграция с API ВКонтакте для подбора партнеров по заданным критериям, сохранение результатов поиска в PostgreSQL.
 * **[Скрипт резервного копирования данных из VK](https://github.com/dm-morozov/Netology_Course_work__Backup_from_VK_to_Ya_Disk_and_Google_drive)** — скрипт для автоматизации резервного копирования фотографий пользователя из профиля VK на Яндекс.Диск и Google Drive через соответствующие REST API.
