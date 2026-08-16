@@ -7,10 +7,12 @@
 ## 📂 Структура раздела
 
 * 📖 **[Теоретическая шпаргалка](file:///c:/GitHub/resume-fullstack-py-js/.assistant-notes/interview_preparation.md)** — ключевые вопросы по Python, Django, БД и React.
+* ✉️ **[История сопроводительных писем](file:///c:/GitHub/resume-fullstack-py-js/preparing-for-the-interview/cover_letters.md)** — примеры наших реальных откликов с разбором акцентов под каждую вакансию.
 * 🛠️ `code_experiments/` — мини-скрипты для проверки теории на практике:
   * 🐍 [01_mutable_immutable_defaults.py](file:///c:/GitHub/resume-fullstack-py-js/preparing-for-the-interview/code_experiments/01_mutable_immutable_defaults.py) — изменяемость и ловушка аргументов по умолчанию.
   * 🔒 [02_closures_nonlocal.py](file:///c:/GitHub/resume-fullstack-py-js/preparing-for-the-interview/code_experiments/02_closures_nonlocal.py) — замыкания и ключевое слово `nonlocal`.
   * 🔄 [03_callbacks_list_mutations.py](file:///c:/GitHub/resume-fullstack-py-js/preparing-for-the-interview/code_experiments/03_callbacks_list_mutations.py) — функции обратного вызова (callbacks) и мутация списков.
+  * ⚙️ [04_iterators_generators.py](file:///c:/GitHub/resume-fullstack-py-js/preparing-for-the-interview/code_experiments/04_iterators_generators.py) — протокол итератора и создание генераторов (`yield`).
 * 🧠 `leetcode_solutions/` — мои решения алгоритмических задач с комментариями и оценкой сложности по Big O.
 
 ---
