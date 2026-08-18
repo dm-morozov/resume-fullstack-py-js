@@ -1,2 +1,13 @@
 # Исключение папки для заметок ИИ-ассистента
 .assistant-notes/
+
+# Игнорируем кэш Python
+__pycache__/
+*.pyc
+
+# Игнорируем все сгенерированные ежедневные файлы остатков
+preparing-for-the-interview/code_experiments/05_test_task_InfoVizion/stock/stock_2025_*.csv
+
+# Но оставляем только стартовый файл (30 апреля) и финальный результат (31 июля)
+!preparing-for-the-interview/code_experiments/05_test_task_InfoVizion/stock/stock_2025_04_30.csv
+!preparing-for-the-interview/code_experiments/05_test_task_InfoVizion/stock/stock_2025_07_31.csv
