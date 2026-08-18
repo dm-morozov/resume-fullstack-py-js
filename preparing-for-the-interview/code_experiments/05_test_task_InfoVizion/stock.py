@@ -149,8 +149,16 @@ def write_stock(file_path: Path, stock_db: dict[tuple[str, str], list[float]], d
     
     logging.info(f"Записан файл {file_path.name}")
 
-def apply_daily_transactions():
-    pass 
+def apply_daily_transactions(stock: dict[tuple[str, str], list[float]], daily_transactions: dict[tuple[str, str], list[float]]) -> None:
+    for key, (qty, cost_amount) in daily_transactions.items():
+
+        # В key лежит кортеж (item_id, location_id)
+        # Делаем проверку: а лежал ли данный товар на складе
+        if key not in stock:
+            stock[key] = [0.0, 0.0]
+
+        stock[key][0] += qty
+        stock[key][1] += cost_amount
     
 
 def main() -> None:
@@ -189,10 +197,18 @@ def main() -> None:
         # Вытягиваем транзакции за сегодня, если их нет то пустой словарь
         daily_transactions = transactions.get(date_str, {})
 
+        # Применяем транзакции к остаткам
+        apply_daily_transactions(stock, daily_transactions)
 
+        # Записываем остатки за текущий день
+        file_date_str = current_date.strftime('%Y_%m_%d')
+        path_to_stock = PATH_STOCK.joinpath(f'stock_{file_date_str}.csv')
+        write_stock(path_to_stock, stock, date_str)
 
+        # Увеличиваем день
         current_date += timedelta(days=1)
-        
+    
+    logging.info(f"Загрузка и обработка данных завершены успешно")    
         
 if __name__ == "__main__":
     try:
