@@ -1,41 +1,62 @@
-from pathlib import Path
+"""Расчёт подневных товарных остатков на основании CSV-файлов движений."""
+
 import csv
 import logging
 from datetime import date, timedelta
-from decimal import Decimal
+from decimal import Decimal, InvalidOperation
+from pathlib import Path
 
 # Настраиваем логирование: выводим время, уровень лога (INFO/WARNING/ERROR) и сообщение
 logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s'
+    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
 )
+logger = logging.getLogger(__name__)
 
 
 PATH_SOURCE = Path(__file__).parent
-PATH_TRANS = PATH_SOURCE / 'invent_trans'
-PATH_STOCK = PATH_SOURCE / 'stock'
+PATH_TRANS = PATH_SOURCE / "invent_trans"
+PATH_STOCK = PATH_SOURCE / "stock"
+EXPECTED_HEADER = [
+    "item_id",
+    "location_id",
+    "trans_date",
+    "qty",
+    "cost_amount",
+]
+
 
 def load_initial_stock(file_path: Path) -> dict[tuple[str, str], list[Decimal]]:
-    """
-    Загружает начальные остатки товаров.
-    Возвращает словарь с ключом (item_id, location_id) и значением [qty, cost_amount].
-    """
+    """Загрузить начальные товарные остатки из CSV-файла.
 
+    Args:
+        file_path: Путь к файлу начальных остатков.
+
+    Returns:
+        Словарь, в котором ключом является пара идентификаторов
+        товара и подразделения, а значением — список из количества
+        и себестоимости.
+
+    Raises:
+        FileNotFoundError: Если файл начальных остатков не найден.
+        ValueError: Если заголовок или одна из строк файла некорректны.
+    """
     if not file_path.exists():
         raise FileNotFoundError(f"Файл начальных остатков не найден: {file_path}")
 
-    logging.info(f"Загрузка начальных остатков из файла: {file_path.name}")
+    logger.info("Загрузка начальных остатков из файла: %s", file_path.name)
 
     data = {}
-    with open(file_path, 'r', newline='', encoding='utf-8') as file_handle:
-        reader = csv.reader(file_handle, delimiter=';')
+    with open(file_path, "r", newline="", encoding="utf-8") as file_handle:
+        reader = csv.reader(file_handle, delimiter=";")
 
-        next(reader)  # Пропускаем заголовок
-        
-        # Используем csv.reader вместо DictReader
-        # Доступ по индексам снижает вычислительные расходы при обработке большого файла
+        header = next(reader, None)  # Пропускаем заголовок
 
-        for row in reader:
+        if header != EXPECTED_HEADER:
+            raise ValueError(f"Некорректный заголовок файла {file_path.name}: {header}")
+
+        # Порядок колонок задан условием, поэтому используем csv.reader
+        # вместо DictReader и обращаемся к значениям строки по индексам.
+        for row_number, row in enumerate(reader, start=2):
             if not row:  # Пропускаем пустые строки
                 continue
 
@@ -44,41 +65,62 @@ def load_initial_stock(file_path: Path) -> dict[tuple[str, str], list[Decimal]]:
                 location_id = row[1]
                 qty = Decimal(row[3])
                 cost_amount = Decimal(row[4])
-                
+
+                # Проверка на конечность значений, например NaN или бесконечность
+                if not qty.is_finite() or not cost_amount.is_finite():
+                    raise ValueError(
+                        f"Неконечное значение в строке {row_number}: "
+                        f"qty={qty}, cost_amount={cost_amount}"
+                    )
+
                 data[(item_id, location_id)] = [qty, cost_amount]
-                
-            except (ValueError, IndexError) as e:
-                logging.warning(
-                    f"Пропущена некорректная строка в файле остатков {file_path.name}: {row}. Ошибка: {e}"
-                )
-                continue
-                
-    logging.info(f"Загружено товаров: {len(data)}")
+
+            # Некорректное число вызывает InvalidOperation,
+            # отсутствие обязательной колонки вызывает IndexError.
+            except (InvalidOperation, IndexError) as error:
+                raise ValueError(
+                    f"Некорректная строка {row_number} в файле {file_path.name}: {row}"
+                ) from error
+
+    logger.info("Загружено товаров: %d", len(data))
 
     return data
 
 
-def load_transactions_by_date(file_path: Path) -> dict[str, dict[tuple[str, str], list[Decimal]]]:
+def load_transactions_by_date(
+    file_path: Path,
+) -> dict[str, dict[tuple[str, str], list[Decimal]]]:
+    """Загрузить и агрегировать товарные движения по датам.
+
+    Операции с одинаковыми идентификаторами товара, подразделения
+    и датой суммируются.
+
+    Args:
+        file_path: Путь к помесячному файлу товарных движений.
+
+    Returns:
+        Словарь операций по датам. Для каждой даты хранится словарь,
+        ключом которого является пара item_id и location_id,
+        а значением — суммарные количество и себестоимость.
+
+    Raises:
+        FileNotFoundError: Если файл движений не найден.
+        ValueError: Если заголовок или одна из строк файла некорректны.
     """
-    {
-        "2025-05-01": {
-            ("Товар_А", "Склад_Б"): [суммарное_кол-во, суммарная_стоимость]
-        },
-        "2025-05-02": { ... }
-    } 
-    """
-    
     if not file_path.exists():
         raise FileNotFoundError(f"Файл транзакций не найден: {file_path}")
 
-    logging.info(f"Загрузка транзакций из файла: {file_path.name}")
+    logger.info("Загрузка транзакций из файла: %s", file_path.name)
 
     daily_transactions = {}
-    with open(file_path, 'r', newline='', encoding='utf-8') as csvfile:
-        reader = csv.reader(csvfile, delimiter=';')
-        next(reader)
+    with open(file_path, "r", newline="", encoding="utf-8") as csvfile:
+        reader = csv.reader(csvfile, delimiter=";")
 
-        for row in reader:
+        header = next(reader, None)
+        if header != EXPECTED_HEADER:
+            raise ValueError(f"Некорректный заголовок файла {file_path.name}: {header}")
+
+        for row_number, row in enumerate(reader, start=2):
             if not row:
                 continue
 
@@ -89,73 +131,99 @@ def load_transactions_by_date(file_path: Path) -> dict[str, dict[tuple[str, str]
                 qty = Decimal(row[3])
                 cost_amount = Decimal(row[4])
 
+                # Проверка на конечность значений, например NaN или бесконечность
+                if not qty.is_finite() or not cost_amount.is_finite():
+                    raise ValueError(
+                        f"Неконечное значение в строке {row_number}: "
+                        f"qty={qty}, cost_amount={cost_amount}"
+                    )
+
                 if trans_date not in daily_transactions:
                     daily_transactions[trans_date] = {}
-                
+
                 if (item_id, location_id) not in daily_transactions[trans_date]:
-                    daily_transactions[trans_date][(item_id, location_id)] = [Decimal("0"), Decimal("0")]
+                    daily_transactions[trans_date][(item_id, location_id)] = [
+                        Decimal(0),
+                        Decimal(0),
+                    ]
 
                 daily_transactions[trans_date][(item_id, location_id)][0] += qty
                 daily_transactions[trans_date][(item_id, location_id)][1] += cost_amount
 
-            except (ValueError, IndexError) as e:
-                logging.warning(
-                    f"Пропущена некорректная строка в файле транзакций {file_path.name}: {row}. Ошибка: {e}"
-                )
-                continue
-    
-    logging.info(f"Транзакции сгруппированы по дням, всего дней: {len(daily_transactions)}")
+            except (InvalidOperation, IndexError) as error:
+                raise ValueError(
+                    f"Некорректная строка {row_number} в файле {file_path.name}: {row}"
+                ) from error
+
+    logger.info(
+        "Транзакции сгруппированы по дням, всего дней: %d",
+        len(daily_transactions),
+    )
 
     return daily_transactions
 
 
-def write_stock(file_path: Path, stock_db: dict[tuple[str, str], list[Decimal]], date_str: str) -> None:
-    with open(file_path, 'w', newline='', encoding='utf-8') as file_handle:
+def write_stock(
+    file_path: Path, stock_db: dict[tuple[str, str], list[Decimal]], date_str: str
+) -> None:
+    """Записать остатки на конец дня в CSV-файл.
 
-        # (item_id, location_id, trans_date) взяты в двойные кавычки, а числа (qty, cost_amount) записаны без кавычек
+    Позиции сортируются по идентификаторам товара и подразделения.
+    Строковые поля записываются в кавычках, числовые — без кавычек.
+
+    Args:
+        file_path: Путь к создаваемому CSV-файлу.
+        stock_db: Остатки по товарам и подразделениям.
+        date_str: Дата остатков в формате YYYY-MM-DD.
+    """
+    with open(file_path, "w", newline="", encoding="utf-8") as file_handle:
+        # (item_id, location_id, trans_date) взяты в двойные кавычки,
+        # а числа (qty, cost_amount) записаны без кавычек
         # Используется csv.QUOTE_NONNUMERIC, чтобы числа выводились без кавычек.
-        writer = csv.writer(file_handle, delimiter=';', quoting=csv.QUOTE_NONNUMERIC)
+        writer = csv.writer(file_handle, delimiter=";", quoting=csv.QUOTE_NONNUMERIC)
 
         writer.writerow(["item_id", "location_id", "trans_date", "qty", "cost_amount"])
 
         for (item_id, location_id), (qty, cost_amount) in sorted(stock_db.items()):
-
-            # Проверка на конечность значений, например NaN или бесконечность
-            if not qty.is_finite() or not cost_amount.is_finite():
-                raise ValueError(f"Неконечное значение: qty={qty}, cost_amount={cost_amount}")
-
-            # Целые Decimal приводим к int для компактности, а дробные оставляем как точный Decimal
+            # Целые Decimal приводим к int для компактности,
+            # а дробные оставляем как точный Decimal
             qty_val = int(qty) if qty % 1 == 0 else qty
             cost_val = int(cost_amount) if cost_amount % 1 == 0 else cost_amount
 
-            writer.writerow([
-                item_id,
-                location_id,
-                date_str,
-                qty_val,
-                cost_val
-            ])
-    
-    logging.info(
+            writer.writerow([item_id, location_id, date_str, qty_val, cost_val])
+
+    logger.info(
         "Записан файл %s: %d позиций",
         file_path.name,
         len(stock_db),
     )
 
 
-def apply_daily_transactions(stock: dict[tuple[str, str], list[Decimal]], daily_transactions: dict[tuple[str, str], list[Decimal]]) -> None:
-    for key, (qty, cost_amount) in daily_transactions.items():
+def apply_daily_transactions(
+    stock: dict[tuple[str, str], list[Decimal]],
+    daily_transactions: dict[tuple[str, str], list[Decimal]],
+) -> None:
+    """Применить операции дня к текущим товарным остаткам.
 
+    Функция изменяет переданный словарь stock на месте. Для новой пары
+    товара и подразделения начальный остаток принимается равным нулю.
+
+    Args:
+        stock: Изменяемый словарь текущих остатков.
+        daily_transactions: Агрегированные операции за один день.
+    """
+    for key, (qty, cost_amount) in daily_transactions.items():
         # В key лежит кортеж (item_id, location_id)
-        # Делаем проверку: а лежал ли данный товар на складе
+        # Если позиции ещё нет в остатках, создаём её с нулевыми значениями.
         if key not in stock:
-            stock[key] = [Decimal("0"), Decimal("0")]
+            stock[key] = [Decimal(0), Decimal(0)]
 
         stock[key][0] += qty
         stock[key][1] += cost_amount
 
 
 def main() -> None:
+    """Рассчитать и записать подневные остатки за заданный период."""
     # Начальная дата
     current_date = date(2025, 5, 1)
 
@@ -168,16 +236,16 @@ def main() -> None:
     transactions = {}
 
     # Загружаем стартовые остатки на 30.04.2025
-    file_path = PATH_STOCK.joinpath('stock_2025_04_30.csv')
+    file_path = PATH_STOCK.joinpath("stock_2025_04_30.csv")
     stock = load_initial_stock(file_path)
 
     # Проходимся по каждому дню
     while current_date <= end_date:
-        year_month = current_date.strftime('%Y_%m')
+        year_month = current_date.strftime("%Y_%m")
 
         # Месяц сменился или это первая итерация - загружаем файл
         if year_month != current_month_str:
-            file_name = f'invent_trans_{year_month}.csv'
+            file_name = f"invent_trans_{year_month}.csv"
             path_to_transactions = PATH_TRANS.joinpath(file_name)
 
             # Загружаем транзакции месяца
@@ -185,8 +253,7 @@ def main() -> None:
 
             current_month_str = year_month
 
-        
-        date_str = current_date.strftime('%Y-%m-%d')
+        date_str = current_date.strftime("%Y-%m-%d")
 
         # Вытягиваем транзакции за сегодня, если их нет то пустой словарь
         daily_transactions = transactions.get(date_str, {})
@@ -195,19 +262,19 @@ def main() -> None:
         apply_daily_transactions(stock, daily_transactions)
 
         # Записываем остатки за текущий день
-        file_date_str = current_date.strftime('%Y_%m_%d')
-        path_to_stock = PATH_STOCK.joinpath(f'stock_{file_date_str}.csv')
+        file_date_str = current_date.strftime("%Y_%m_%d")
+        path_to_stock = PATH_STOCK.joinpath(f"stock_{file_date_str}.csv")
         write_stock(path_to_stock, stock, date_str)
 
         # Увеличиваем день
         current_date += timedelta(days=1)
-    
-    logging.info(f"Загрузка и обработка данных завершены успешно")    
+
+    logger.info("Загрузка и обработка данных завершены успешно")
 
 
 if __name__ == "__main__":
     try:
         main()
     except Exception:
-        logging.exception("Ошибка при обработке данных")
+        logger.exception("Ошибка при обработке данных")
         raise

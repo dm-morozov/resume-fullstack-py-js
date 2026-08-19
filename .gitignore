@@ -1,9 +1,12 @@
 # Исключение папки для заметок ИИ-ассистента
 .assistant-notes/
 
-# Игнорируем кэш Python
+# Игнорируем кэш Python и Ruff
 __pycache__/
 *.pyc
+.ruff_cache/
+tmp/
+*.zip
 
 # Игнорируем все сгенерированные ежедневные файлы остатков
 preparing-for-the-interview/code_experiments/05_test_task_InfoVizion/stock/stock_2025_*.csv
