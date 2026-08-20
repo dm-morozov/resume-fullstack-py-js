@@ -1,11 +1,48 @@
-# Исключение папки для заметок ИИ-ассистента
+# Локальные настройки и заметки ИИ-ассистента
 .assistant-notes/
+.vscode/
+.idea/
 
-# Игнорируем кэш Python и Ruff
+# Переменные окружения и локальные секреты
+.env
+.env.*
+!.env.example
+
+# Системные файлы
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Python: виртуальные окружения, кэш и артефакты сборки
+.venv/
+venv/
+env/
+ENV/
 __pycache__/
 *.pyc
 .ruff_cache/
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+
+# JavaScript: зависимости и кэш сборщиков
+node_modules/
+.npm/
+.yarn/
+.pnpm-store/
+.parcel-cache/
+.vite/
+coverage/
+
+# Локальные временные и сгенерированные файлы
 tmp/
+output/pdf/
 *.zip
 
 # Игнорируем все сгенерированные ежедневные файлы остатков
