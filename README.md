@@ -4,7 +4,7 @@
 
 Оренбург, готов к переезду и работе в офисе
 
-[Telegram](https://t.me/dem2014) | [Email](mailto:dem.morozov@gmail.com) | +7 (903) 392-22-29 | [GitHub](https://github.com/dm-morozov)
+[Telegram](https://t.me/dem2014) | [Email](mailto:dem.morozov@gmail.com) | [GitHub](https://github.com/dm-morozov)
 
 - Желаемая зарплата: **70 000 ₽ на руки**
 - Занятость: полная занятость, стажировка
