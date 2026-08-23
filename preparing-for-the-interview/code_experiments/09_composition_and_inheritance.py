@@ -109,20 +109,41 @@ print(order.__dict__)
 # Затем состояние заказа `is_paid` меняется на True, и метод возвращает строку с результатом.
 #
 # 4. Что выведут три вызова print()?
-# Ответ: 
+# Ответ:
 # - `Оплачено: 5000 ₽`
 # - `True`
 # - `{'number': 101, 'payment_service': <__main__.PaymentService object at ...>, 'is_paid': True}`
 #
 # 5. Почему Order не должен наследоваться от PaymentService?
-# Ответ: Между ними нет отношения «является» (is-a). Заказ не является платёжным сервисом. 
+# Ответ: Между ними нет отношения «является» (is-a). Заказ не является платёжным сервисом.
 # Наследование нарушило бы логику предметной области и принцип единственной ответственности (SRP).
 #
 # 6. Какое преимущество даёт передача payment_service через конструктор?
-# Ответ: Это внедрение зависимостей (Dependency Injection). Оно позволяет легко подменять 
-# платёжный сервис (например, на StripeService, PayPalService или MockPaymentService в тестах), 
+# Ответ: Это внедрение зависимостей (Dependency Injection). Оно позволяет легко подменять
+# платёжный сервис (например, на StripeService, PayPalService или MockPaymentService в тестах),
 # не меняя код самого класса Order.
 #
 # 7. Как здесь проявляется делегирование?
-# Ответ: Класс Order имеет метод `pay`, но он не реализует логику проведения платежа самостоятельно, 
+# Ответ: Класс Order имеет метод `pay`, но он не реализует логику проведения платежа самостоятельно,
 # а делегирует (передаёт) эту задачу объекту `payment_service`.
+
+
+class BankAccount:
+    def __init__(self, balance: float) -> None:
+        self._balance = balance
+
+    @property
+    def balance(self) -> float:
+        return self._balance
+
+    def withdraw(self, amount: float) -> None:
+        if amount <= 0:
+            raise ValueError("Сумма должна быть положительной")
+
+        if amount > self._balance:
+            raise ValueError("Недостаточно средств")
+
+        self._balance -= amount
+
+
+account = BankAccount(500000)
