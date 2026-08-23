@@ -2,6 +2,7 @@
 .assistant-notes/
 .vscode/
 .idea/
+.obsidian/
 
 # Переменные окружения и локальные секреты
 .env
@@ -10,6 +11,7 @@
 
 # Системные файлы
 .DS_Store
+._*
 Thumbs.db
 desktop.ini
 
@@ -25,7 +27,13 @@ __pycache__/
 *.pyd
 .pytest_cache/
 .mypy_cache/
+.hypothesis/
+.tox/
+.nox/
+.ipynb_checkpoints/
 .coverage
+.coverage.*
+coverage.xml
 htmlcov/
 build/
 dist/
@@ -38,12 +46,21 @@ node_modules/
 .pnpm-store/
 .parcel-cache/
 .vite/
+.eslintcache
+*.tsbuildinfo
 coverage/
 
 # Локальные временные и сгенерированные файлы
 tmp/
 output/pdf/
 *.zip
+*.log
+*.tmp
+*.bak
+*.swp
+
+# Вспомогательные файлы остатков
+*_old.*
 
 # Игнорируем все сгенерированные ежедневные файлы остатков
 preparing-for-the-interview/code_experiments/05_test_task_InfoVizion/stock/stock_2025_*.csv
