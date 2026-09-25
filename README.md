@@ -24,7 +24,7 @@
 | :--- | :--- |
 | **Backend** | Python, ООП, Django, Django REST Framework, Flask, REST API, HTTP |
 | **Базы данных** | PostgreSQL, SQL, Django ORM, SQLAlchemy, SQLite |
-| **Тестирование** | [pytest](https://github.com/dm-morozov/Netology_31_Testing_django_applications_using_pytest) (фикстуры, тесты Django REST API); Django Test Framework (тесты My Cloud) |
+| **Тестирование** | pytest (фикстуры, тесты Django REST API); Django Test Framework (тесты My Cloud) |
 | **Интеграции** | Telegram Bot API (telebot), VK API, Яндекс Диск API, Google Drive API |
 | **Развёртывание** | Git, GitHub Actions, Linux/Ubuntu, Nginx, Gunicorn |
 | **Frontend** | JavaScript, TypeScript, React, Redux Toolkit, HTML, CSS |
@@ -37,7 +37,7 @@
 
 - Завершил программу: от Python, ООП и работы с API до баз данных, Django и разработки клиентской части на JavaScript, TypeScript и React.
 - Выполнил индивидуальные и командные проекты: файловое хранилище, интеграцию облачных сервисов, приложение для знакомств с VK API и PostgreSQL.
-- Реализовывал REST API, аутентификацию и разграничение доступа, работу с файлами и базами данных; писал тесты и разворачивал приложения в Linux-окружении.
+- Реализовывал REST API, аутентификацию и разграничение доступа, работу с файлами и базами данных; писал [тесты на pytest для Django REST API](https://github.com/dm-morozov/Netology_31_Testing_django_applications_using_pytest) и разворачивал приложения в Linux-окружении.
 
 ### [My Cloud — файловое хранилище](https://github.com/dm-morozov/netology_78_cloud-file-storage-graduation-project)
 
