@@ -1,6 +1,6 @@
-<img src="img/photo-dm-morozov.jpg" alt="Дмитрий Морозов" width="140" align="right">
-
 # Дмитрий Морозов
+
+<img src="img/photo-dm-morozov.jpg" alt="Дмитрий Морозов" width="140" align="right">
 
 ### Python backend-разработчик · Junior
 
