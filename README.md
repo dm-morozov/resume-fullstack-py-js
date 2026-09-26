@@ -51,10 +51,12 @@
 
 | Проект | Что реализовано |
 | :--- | :--- |
-| [**Telegram-бот для изучения английского**](https://github.com/dm-morozov/Netology_14_Telegram_Bot) | Python, telebot, PostgreSQL, SQLAlchemy: упражнения с выбором перевода, добавление и удаление слов, обработка команд и сообщений. |
-| [**VKinder**](https://github.com/dm-morozov/Netology_21_VKinder_Team) | Приложение для знакомств на Python с PostgreSQL и VK API, команда из трёх человек. Мой вклад: проектирование базы данных, модели сущностей, классы приложения и работа с данными. |
-| [**Резервное копирование фотографий**](https://github.com/dm-morozov/Netology_Course_work__Backup_from_VK_to_Ya_Disk_and_Google_drive) | Python-интеграция VK, Яндекс Диска и Google Drive: получение фотографий, загрузка в хранилища, сохранение сведений в JSON. |
 | [**User Management Flask**](https://github.com/dm-morozov/user-management-flask) | Тестовое задание агентства «Победа» в рамках практики Нетологии: API на Flask/SQLite с TypeScript-клиентом, добавление и просмотр пользователей, валидация и обработка повторного email. Развёртывание на PythonAnywhere и GitHub Pages. [Демо](https://dm-morozov.github.io/user-management-flask/). |
+| [**Django и Django REST Framework — практика**](https://github.com/dm-morozov/Netology_25_Django_homework_all) | Серия учебных работ: запросы и шаблоны, Django ORM, REST API и CRUD на DRF, права доступа и тестирование API с pytest. |
+| [**Резервное копирование фотографий**](https://github.com/dm-morozov/Netology_Course_work__Backup_from_VK_to_Ya_Disk_and_Google_drive) | Python-интеграция VK, Яндекс Диска и Google Drive: получение фотографий, загрузка в хранилища, сохранение сведений в JSON. |
+| [**VKinder**](https://github.com/dm-morozov/Netology_21_VKinder_Team) | Приложение для знакомств на Python с PostgreSQL и VK API, команда из трёх человек. Мой вклад: проектирование базы данных, модели сущностей, классы приложения и работа с данными. |
+| [**Telegram-бот для изучения английского**](https://github.com/dm-morozov/Netology_14_Telegram_Bot) | Python, telebot, PostgreSQL, SQLAlchemy: упражнения с выбором перевода, добавление и удаление слов, обработка команд и сообщений. |
+| [**Bosa Noga — дипломный проект по React**](https://github.com/dm-morozov/netology_77_react-diploma-project) | Интернет-магазин на React, TypeScript, Redux Toolkit и Redux-Saga: каталог, поиск, карточка товара, корзина, оформление заказа и обработка ошибок API. [Демо](https://dm-morozov.github.io/netology_77_react-diploma-project/). |
 | [**Retro Game**](https://github.com/dm-morozov/Netology_64_diploma_assignment_course_advanced_javascript_retro_game) | Пошаговая игра на TypeScript: ООП, игровая логика и компьютерный соперник, тесты Jest, сборка Webpack и публикация через GitHub Actions. [Демо](https://dm-morozov.github.io/Netology_64_diploma_assignment_course_advanced_javascript_retro_game/). |
 
 ## Коммерческий опыт
