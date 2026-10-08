@@ -26,7 +26,7 @@
 | **Базы данных** | PostgreSQL, SQL, Django ORM, SQLAlchemy, SQLite |
 | **Тестирование** | pytest (фикстуры, тесты Django REST API); Django Test Framework (тесты My Cloud) |
 | **Интеграции** | Telegram Bot API (telebot), VK API, Яндекс Диск API, Google Drive API |
-| **Развёртывание** | Git, GitHub Actions, Linux/Ubuntu, Nginx, Gunicorn |
+| **Развёртывание** | Git, GitHub Actions, Docker, Docker Compose, Linux/Ubuntu, Nginx, Gunicorn, HTTPS |
 | **Frontend** | JavaScript, TypeScript, React, Redux Toolkit, HTML, CSS |
 
 ## Практика Python-разработки
@@ -41,11 +41,14 @@
 
 ### [My Cloud — файловое хранилище](https://github.com/dm-morozov/my-cloud)
 
-Дипломный fullstack-проект Нетологии. Backend: Python, Django, Django REST Framework, PostgreSQL. Frontend: React, TypeScript, Redux Toolkit.
+Персональное файловое хранилище, созданное как дипломный проект и развиваемое самостоятельно. Backend: Python, Django, Django REST Framework, PostgreSQL. Frontend: React, TypeScript, Redux Toolkit, CSS Modules.
+
+[Работающее приложение](https://mycloud.mu56.ru/) · [Исходный код](https://github.com/dm-morozov/my-cloud)
 
 - Реализовал REST API для регистрации и входа, управления файлами и пользователями, загрузки, скачивания и публичного доступа по ссылке.
-- Настроил сессионную аутентификацию, разграничение прав пользователя и администратора; добавил тесты для API, прав доступа и файловых операций.
-- Развернул приложение на Ubuntu с PostgreSQL, Gunicorn и Nginx; связал API с React-клиентом.
+- Настроил сессионную аутентификацию с CSRF-защитой и разграничение прав пользователя и администратора; добавил тесты для API, прав доступа и файловых операций.
+- Перенёс backend на Ubuntu VDS: Docker Compose, PostgreSQL, Gunicorn, Nginx и HTTPS. Frontend разместил на GitHub Pages с автоматической публикацией через GitHub Actions и собственным доменом.
+- Переработал адаптивный интерфейс: поиск по названиям файлов, общие UI-компоненты и стили, разделение API-клиента, состояния приложения и представления. Проверил в браузере вход, загрузку, поиск и удаление файла.
 
 ### Другие проекты
 
