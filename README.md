@@ -39,7 +39,7 @@
 - Выполнил индивидуальные и командные проекты: файловое хранилище, интеграцию облачных сервисов, приложение для знакомств с VK API и PostgreSQL.
 - Реализовывал REST API, аутентификацию и разграничение доступа, работу с файлами и базами данных; писал [тесты на pytest для Django REST API](https://github.com/dm-morozov/Netology_31_Testing_django_applications_using_pytest) и разворачивал приложения в Linux-окружении.
 
-### [My Cloud — файловое хранилище](https://github.com/dm-morozov/netology_78_cloud-file-storage-graduation-project)
+### [My Cloud — файловое хранилище](https://github.com/dm-morozov/my-cloud)
 
 Дипломный fullstack-проект Нетологии. Backend: Python, Django, Django REST Framework, PostgreSQL. Frontend: React, TypeScript, Redux Toolkit.
 
