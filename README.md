@@ -2,109 +2,94 @@
 
 <img src="img/photo-dm-morozov.jpg" alt="Дмитрий Морозов" width="140" align="right">
 
-### Python backend-разработчик · Junior
+### Python backend-разработчик · Django / DRF
 
-**Python · Django · Django REST Framework · PostgreSQL · REST API**
+**Python · Django REST Framework · PostgreSQL · Docker · Linux · REST API**
 
-Оренбург · Готов к переезду и работе в офисе, гибридно или удалённо
+Разрабатываю веб-приложения и REST API на Python, Django/DRF и PostgreSQL: работа с данными, авторизация, интеграции и автотесты. Мои проекты — «Мир улыбок», My Cloud и PilotSpace. С января 2022 года занимаюсь коммерческой веб-разработкой на PHP и JavaScript в Студии Кудинова. По образованию — инженер-программист.
 
-[Telegram](https://t.me/dem2014) · [Email](mailto:dem.morozov@gmail.com) · [GitHub](https://github.com/dm-morozov)
+Оренбург · Удалённо, гибрид или офис · Готов к переезду · Полная занятость
 
-Полная занятость · **80 000–100 000 ₽ на руки**
+[Telegram: @dem2014](https://t.me/dem2014) · [Email: dem.morozov@gmail.com](mailto:dem.morozov@gmail.com) · [GitHub](https://github.com/dm-morozov)
 
-Инженер-программист по образованию, более двух лет коммерческого опыта веб-разработки на PHP и JavaScript. Завершил **22-месячную программу профессиональной переподготовки «Fullstack-разработчик на Python» в Нетологии**. В проектах программы разрабатывал REST API и интеграции с внешними сервисами, работал с PostgreSQL и развёртыванием приложений.
+[Резюме PDF — скачать или открыть](dmitry_morozov_backend_resume.pdf)
 
-Ищу работу в Python backend с командной разработкой и обратной связью по коду. Рассматриваю также оплачиваемую стажировку; условия готов обсуждать.
+## Основной стек
 
----
+- **Backend:** Python, Django, Django REST Framework, Flask, REST API, HTTP.
+- **Данные:** PostgreSQL, SQL, Django ORM, SQLAlchemy, SQLite.
+- **Тестирование и качество:** pytest, фикстуры и тесты Django REST API, Django Test Framework.
+- **Окружение и доставка:** Git, Docker / Docker Compose, Linux (Ubuntu), Nginx, Gunicorn, GitHub Actions (CI/CD).
+- **Интеграции:** Telegram Bot API, VK API, Яндекс Диск API, Google Drive API.
+- **Frontend и сопутствующий стек:** JavaScript, TypeScript, React, HTML / CSS, PHP, WordPress, 1С-Битрикс.
 
-## Ключевые навыки
+## Ключевые продукты и сервисы
 
-| Направление | Технологии и практика |
+Самостоятельные проекты: от схемы данных и API до интерфейса, тестов и развёртывания.
+
+### [«Мир улыбок» — платформа агентства праздников](https://mu56.ru/)
+
+**Django / DRF · PostgreSQL · Next.js · Telegram API · Docker**
+
+- Спроектировал БД в PostgreSQL и REST API каталога с динамическим расчётом стоимости заказов.
+- Реализовал идемпотентный API заявок: защита от дублирования заказов и сообщений при сбоях сети.
+- Организовал очередь Telegram-уведомлений: хранение статусов доставки, повторные попытки и обработка ошибок.
+- Покрыл автотестами валидацию входных данных, расчёты, идемпотентность и обработку ошибок.
+- Настроил Docker Compose, отдельные dev/prod среды и CI/CD в GitHub Actions; проверяю приложение после развёртывания.
+
+### [My Cloud — персональное файловое хранилище](https://github.com/dm-morozov/my-cloud)
+
+**Python · Django / DRF · PostgreSQL · React · TypeScript · Docker**
+
+[Рабочее приложение](https://mycloud.mu56.ru/) · [Исходный код на GitHub](https://github.com/dm-morozov/my-cloud)
+
+- Разработал REST API: регистрация, квоты, потоковая загрузка/скачивание, генерация публичных ссылок.
+- Настроил сессионную аутентификацию, CSRF-защиту, роли user/admin и автотесты прав доступа и API.
+- Развернул полный стек в Docker Compose на Ubuntu VDS (PostgreSQL, Gunicorn, Nginx, SSL), CI/CD в GitHub Actions.
+- Реализовал адаптивный SPA-клиент на React + TypeScript с поиском файлов и модульной архитектурой API.
+
+### [PilotSpace — сервис подготовки пилотов и авиаспециалистов](https://pilotspace.ru/)
+
+**Python · Обработка данных / ETL · JSON · Веб-сервис**
+
+- Разработал Python ETL-пайплайн: парсинг, валидация и нормализация экзаменационных вопросов из PDF в JSON.
+- Реализовал алгоритмы выборки вопросов по категориям, интерактивное тестирование и разбор ошибок.
+- Создал веб-интерфейс тренировки с сохранением прогресса и возможностью автономной работы.
+
+## Коммерческий опыт разработки
+
+### Студия Кудинова / akudinov.top · Веб-программист
+
+**Январь 2022 — настоящее время**
+
+- Поддерживаю и дорабатываю коммерческие сайты: PHP, JavaScript, CSS, SQL, WordPress и 1С-Битрикс.
+- Настраиваю локальные среды в Docker и автоматизированное развёртывание через GitHub Actions.
+- Работаю с отдельными средами разработки и production, резервными копиями и сценариями отката; проверяю изменения после выкладки.
+- Разрабатываю и дорабатываю функциональность сайтов на PHP и JavaScript: пагинацию, фильтрацию, работу с данными и интеграции с внешними REST API.
+- Верстаю адаптивные страницы по макетам Figma, оптимизирую скорость работы сайтов и дорабатываю legacy-код в команде разработчиков.
+
+## Дополнительные проекты
+
+| Проект | Задача и реализация |
 | :--- | :--- |
-| **Backend** | Python, ООП, Django, Django REST Framework, Flask, REST API, HTTP |
-| **Базы данных** | PostgreSQL, SQL, Django ORM, SQLAlchemy, SQLite |
-| **Тестирование** | pytest (фикстуры, тесты Django REST API); Django Test Framework (тесты My Cloud) |
-| **Интеграции** | Telegram Bot API (telebot), VK API, Яндекс Диск API, Google Drive API |
-| **Развёртывание** | Git, GitHub Actions, Docker, Docker Compose, Linux/Ubuntu, Nginx, Gunicorn, HTTPS |
-| **Frontend** | JavaScript, TypeScript, React, Redux Toolkit, HTML, CSS |
+| [Django / DRF — API и работа с данными](https://github.com/dm-morozov/Netology_25_Django_homework_all) | Набор решений на Django и DRF: REST API, Django ORM, права доступа и ограничение частоты запросов. |
+| [Bosa Noga — интернет-магазин](https://github.com/dm-morozov/netology_77_react-diploma-project) | React, TypeScript, Redux Toolkit и Redux-Saga: каталог, поиск, фильтры, карточки товаров, корзина и оформление демо-заказа. API развёрнут в Docker на Ubuntu VDS, frontend — на GitHub Pages. [Демо](https://dm-morozov.github.io/netology_77_react-diploma-project/). |
+| [User Management Flask](https://github.com/dm-morozov/user-management-flask) | REST API на Flask/SQLite и TypeScript-клиент: CRUD пользователей, валидация данных и обработка повторного email. API развёрнут на Ubuntu VDS через Docker, Gunicorn и Nginx; SQLite — в постоянном томе. [Демо](https://dm-morozov.github.io/user-management-flask/). |
+| [Retro Game](https://github.com/dm-morozov/Netology_64_diploma_assignment_course_advanced_javascript_retro_game) | Игра на TypeScript с тестами на Jest: игровая логика и проверка её работы. |
+| [Автоматизация бэкапов в облачные хранилища](https://github.com/dm-morozov/Netology_Course_work__Backup_from_VK_to_Ya_Disk_and_Google_drive) | Сервис резервного копирования: параллельный сбор медиа через VK API, загрузка в Яндекс Диск и Google Drive API, логирование метаданных в JSON. |
+| [Telegram-бот для изучения английского](https://github.com/dm-morozov/Netology_14_Telegram_Bot) | Хранение словаря в PostgreSQL через SQLAlchemy, упражнения на перевод, добавление и удаление слов, обработка команд. |
 
-## Практика Python-разработки
+Дополнительно: [автотесты Django REST API на pytest](https://github.com/dm-morozov/Netology_31_Testing_django_applications_using_pytest) — фикстуры, проверка ответов API; [VKinder](https://github.com/dm-morozov/Netology_21_VKinder_Team) — в командном проекте спроектировал схему PostgreSQL, создал ORM-модели и реализовал обработку и фильтрацию данных VK API.
 
-**Нетология · Fullstack-разработчик на Python**
+## AI-инструменты
 
-Май 2024 — март 2026 · **22 месяца** · Профессиональная переподготовка
-
-- Завершил программу: от Python, ООП и работы с API до баз данных, Django и разработки клиентской части на JavaScript, TypeScript и React.
-- Выполнил индивидуальные и командные проекты: файловое хранилище, интеграцию облачных сервисов, приложение для знакомств с VK API и PostgreSQL.
-- Реализовывал REST API, аутентификацию и разграничение доступа, работу с файлами и базами данных; писал [тесты на pytest для Django REST API](https://github.com/dm-morozov/Netology_31_Testing_django_applications_using_pytest) и разворачивал приложения в Linux-окружении.
-
-### [My Cloud — файловое хранилище](https://github.com/dm-morozov/my-cloud)
-
-Персональное файловое хранилище, созданное как дипломный проект и развиваемое самостоятельно. Backend: Python, Django, Django REST Framework, PostgreSQL. Frontend: React, TypeScript, Redux Toolkit, CSS Modules.
-
-[Работающее приложение](https://mycloud.mu56.ru/) · [Исходный код](https://github.com/dm-morozov/my-cloud)
-
-- Реализовал REST API для регистрации и входа, управления файлами и пользователями, загрузки, скачивания и публичного доступа по ссылке.
-- Настроил сессионную аутентификацию с CSRF-защитой и разграничение прав пользователя и администратора; добавил тесты для API, прав доступа и файловых операций.
-- Перенёс backend на Ubuntu VDS: Docker Compose, PostgreSQL, Gunicorn, Nginx и HTTPS. Frontend разместил на GitHub Pages с автоматической публикацией через GitHub Actions и собственным доменом.
-- Переработал адаптивный интерфейс: поиск по названиям файлов, общие UI-компоненты и стили, разделение API-клиента, состояния приложения и представления. Проверил в браузере вход, загрузку, поиск и удаление файла.
-
-### Другие проекты
-
-| Проект | Что реализовано |
-| :--- | :--- |
-| [**User Management Flask**](https://github.com/dm-morozov/user-management-flask) | Тестовое задание агентства «Победа» в рамках практики Нетологии: API на Flask/SQLite с TypeScript-клиентом, добавление и просмотр пользователей, валидация и обработка повторного email. Развёртывание на PythonAnywhere и GitHub Pages. [Демо](https://dm-morozov.github.io/user-management-flask/). |
-| [**Django и Django REST Framework — практика**](https://github.com/dm-morozov/Netology_25_Django_homework_all) | Серия учебных работ: запросы и шаблоны, Django ORM, REST API и CRUD на DRF, права доступа и тестирование API с pytest. |
-| [**Резервное копирование фотографий**](https://github.com/dm-morozov/Netology_Course_work__Backup_from_VK_to_Ya_Disk_and_Google_drive) | Python-интеграция VK, Яндекс Диска и Google Drive: получение фотографий, загрузка в хранилища, сохранение сведений в JSON. |
-| [**VKinder**](https://github.com/dm-morozov/Netology_21_VKinder_Team) | Приложение для знакомств на Python с PostgreSQL и VK API, команда из трёх человек. Мой вклад: проектирование базы данных, модели сущностей, классы приложения и работа с данными. |
-| [**Telegram-бот для изучения английского**](https://github.com/dm-morozov/Netology_14_Telegram_Bot) | Python, telebot, PostgreSQL, SQLAlchemy: упражнения с выбором перевода, добавление и удаление слов, обработка команд и сообщений. |
-| [**Bosa Noga — дипломный проект по React**](https://github.com/dm-morozov/netology_77_react-diploma-project) | Интернет-магазин на React, TypeScript, Redux Toolkit и Redux-Saga: каталог, поиск, карточка товара, корзина, оформление заказа и обработка ошибок API. [Демо](https://dm-morozov.github.io/netology_77_react-diploma-project/) (сервер просыпается около минуты). |
-| [**Retro Game**](https://github.com/dm-morozov/Netology_64_diploma_assignment_course_advanced_javascript_retro_game) | Пошаговая игра на TypeScript: ООП, игровая логика и компьютерный соперник, тесты Jest, сборка Webpack и публикация через GitHub Actions. [Демо](https://dm-morozov.github.io/Netology_64_diploma_assignment_course_advanced_javascript_retro_game/). |
-
-## Коммерческий опыт
-
-### akudinov.top — веб-программист
-
-**Сентябрь 2026 — настоящее время**
-
-- Участвовал в настройке Git-процесса с ветками разработки и production, проверками кода и автоматизированным развёртыванием через GitHub Actions.
-- Участвовал в настройке локального окружения, изолированной тестовой среды, резервного копирования перед выкладкой и сценариев отката.
-- Исправляю ошибки и дорабатываю сайты на WordPress: PHP, CSS и JavaScript.
-
-**Январь 2022 — декабрь 2023 · 2 года**
-
-- Разрабатывал и поддерживал коммерческие сайты на WordPress и 1С-Битрикс в команде из шести человек.
-- Дорабатывал функциональность на PHP и JavaScript, включая пагинацию и динамический вывод данных.
-- Верстал адаптивные страницы по макетам Figma, исправлял ошибки интерфейса и существующего кода.
+Использую **Codex**, Claude, ChatGPT и Antigravity для работы с кодом, отладки, тестов и настройки окружения. Ставлю задачи, проверяю изменения и работу приложения перед публикацией.
 
 ## Образование
 
-### Оренбургский государственный университет · 2013
-
-**Информационные системы и технологии · Инженер-программист**
-
-Средний балл диплома — **4,7**.
-
-### Нетология · 2024–2026
-
-**Fullstack-разработчик на Python · Профессиональная переподготовка**
-
-Программа завершена. [**Диплом профессиональной переподготовки →**](certificates_course_netology/diploma_fullstack_python.pdf)
-
-### Сертификаты по модулям
-
-| Python и backend | Frontend |
-| :--- | :--- |
-| [Основы Python](certificates_course_netology/00_programming_language_basics_python.pdf) | [HTML и CSS](certificates_course_netology/06_html_css_basics.pdf) |
-| [Git](certificates_course_netology/01_git_is_a_version_control_system.pdf) | [JavaScript: основы](certificates_course_netology/07_javascript_browser_basics.pdf) |
-| [ООП и работа с API](certificates_course_netology/02_oop_and_working_with_api.pdf) | [JavaScript: углублённый курс](certificates_course_netology/08_javascript_advanced.pdf) |
-| [Базы данных для Python-разработчиков](certificates_course_netology/03_databases_for_python_developers.pdf) | [Расширенный инструментарий JavaScript](certificates_course_netology/09_javascript_in_browser_extended.pdf) |
-| [Профессиональная работа с Python](certificates_course_netology/04_professional_work_with_python.pdf) | [React](certificates_course_netology/10_react_library.pdf) |
-| [Django: создание backend-приложений](certificates_course_netology/05_django_creating_backend_applications.pdf) | |
-
-## Дополнительно
+- **Оренбургский государственный университет · 2008–2013**
+  Факультет информационных технологий, специальность «Информационные системы и технологии», квалификация **«Инженер-программист»**. Средний балл диплома — **4,7**.
+- **Нетология · 2024–2026**
+  Профессиональная переподготовка: **«Fullstack-разработчик на Python»**. [Диплом](certificates_course_netology/diploma_fullstack_python.pdf) · [Сертификаты](certificates_course_netology/).
 
 **Английский:** A2, читаю техническую документацию со словарём.
-
-**Практика алгоритмов:** [Codewars](https://www.codewars.com/users/dm_morozov) · [LeetCode](https://leetcode.com/u/dm-morozov/).
