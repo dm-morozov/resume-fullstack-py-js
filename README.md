@@ -27,7 +27,7 @@
 
 Самостоятельные проекты: от схемы данных и API до интерфейса, тестов и развёртывания.
 
-### [«Мир улыбок» — платформа агентства праздников](https://mu56.ru/)
+### [«Мир улыбок» — платформа агентства праздников](https://github.com/dm-morozov/mu56.ru)
 
 **Django / DRF · PostgreSQL · Next.js · Telegram API · Docker**
 
@@ -37,24 +37,28 @@
 - Покрыл автотестами валидацию входных данных, расчёты, идемпотентность и обработку ошибок.
 - Настроил Docker Compose, отдельные dev/prod среды и CI/CD в GitHub Actions; проверяю приложение после развёртывания.
 
+[Демо](https://mu56.ru/)
+
 ### [My Cloud — персональное файловое хранилище](https://github.com/dm-morozov/my-cloud)
 
 **Python · Django / DRF · PostgreSQL · React · TypeScript · Docker**
 
-[Рабочее приложение](https://mycloud.mu56.ru/) · [Исходный код на GitHub](https://github.com/dm-morozov/my-cloud)
+[Демо](https://mycloud.mu56.ru/)
 
 - Разработал REST API: регистрация, квоты, потоковая загрузка/скачивание, генерация публичных ссылок.
 - Настроил сессионную аутентификацию, CSRF-защиту, роли user/admin и автотесты прав доступа и API.
 - Развернул полный стек в Docker Compose на Ubuntu VDS (PostgreSQL, Gunicorn, Nginx, SSL), CI/CD в GitHub Actions.
 - Реализовал адаптивный SPA-клиент на React + TypeScript с поиском файлов и модульной архитектурой API.
 
-### [PilotSpace — сервис подготовки пилотов и авиаспециалистов](https://pilotspace.ru/)
+### [PilotSpace — сервис подготовки пилотов и авиаспециалистов](https://github.com/dm-morozov/pilotspace.ru)
 
 **Python · Обработка данных / ETL · JSON · Веб-сервис**
 
 - Разработал Python ETL-пайплайн: парсинг, валидация и нормализация экзаменационных вопросов из PDF в JSON.
 - Реализовал алгоритмы выборки вопросов по категориям, интерактивное тестирование и разбор ошибок.
 - Создал веб-интерфейс тренировки с сохранением прогресса и возможностью автономной работы.
+
+[Демо](https://pilotspace.ru/)
 
 ## Коммерческий опыт разработки
 
@@ -75,7 +79,7 @@
 | [Django / DRF — API и работа с данными](https://github.com/dm-morozov/Netology_25_Django_homework_all) | Набор решений на Django и DRF: REST API, Django ORM, права доступа и ограничение частоты запросов. |
 | [Bosa Noga — интернет-магазин](https://github.com/dm-morozov/netology_77_react-diploma-project) | React, TypeScript, Redux Toolkit и Redux-Saga: каталог, поиск, фильтры, карточки товаров, корзина и оформление демо-заказа. API развёрнут в Docker на Ubuntu VDS, frontend — на GitHub Pages. [Демо](https://dm-morozov.github.io/netology_77_react-diploma-project/). |
 | [User Management Flask](https://github.com/dm-morozov/user-management-flask) | REST API на Flask/SQLite и TypeScript-клиент: CRUD пользователей, валидация данных и обработка повторного email. API развёрнут на Ubuntu VDS через Docker, Gunicorn и Nginx; SQLite — в постоянном томе. [Демо](https://dm-morozov.github.io/user-management-flask/). |
-| [Retro Game](https://github.com/dm-morozov/Netology_64_diploma_assignment_course_advanced_javascript_retro_game) | Игра на TypeScript с тестами на Jest: игровая логика и проверка её работы. |
+| [Retro Game](https://github.com/dm-morozov/Netology_64_diploma_assignment_course_advanced_javascript_retro_game) | Игра на TypeScript с тестами на Jest: игровая логика и проверка её работы. [Демо](https://dm-morozov.github.io/Netology_64_diploma_assignment_course_advanced_javascript_retro_game/). |
 | [Автоматизация бэкапов в облачные хранилища](https://github.com/dm-morozov/Netology_Course_work__Backup_from_VK_to_Ya_Disk_and_Google_drive) | Сервис резервного копирования: параллельный сбор медиа через VK API, загрузка в Яндекс Диск и Google Drive API, логирование метаданных в JSON. |
 | [Telegram-бот для изучения английского](https://github.com/dm-morozov/Netology_14_Telegram_Bot) | Хранение словаря в PostgreSQL через SQLAlchemy, упражнения на перевод, добавление и удаление слов, обработка команд. |
 
